@@ -321,6 +321,9 @@ def async_track_state_change_event(
     return _async_track_state_change_event(hass, entity_ids, action, job_type)
 
 
+track_state_change_event = threaded_listener_factory(async_track_state_change_event)
+
+
 @callback
 def _async_dispatch_entity_id_event(
     hass: HomeAssistant,
